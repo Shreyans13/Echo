@@ -1,17 +1,30 @@
 <script lang="ts" context="module">
+  import { link } from "svelte-routing";
   import IconButton from "@smui/icon-button";
   import Button, { Label, Icon } from "@smui/button";
+  import { navigate } from "svelte-routing";
 </script>
 
+<!-- <nav>
+        <Link to="/">Home</Link>
+        <Link to="pageNotExist">pageNotExist</Link>
+      </nav> -->
 <div class="header">
-  <img
-    class="header_logo"
-    src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-    alt="Amazon logo"
-    srcset=""
-  />
+  <a href="/" use:link>
+    <img
+      class="header_logo"
+      src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+      alt="Amazon logo"
+      srcset=""
+      on:click={() => navigate("/")}
+    />
+  </a>
   <div class="header_search">
-    <input type="text" class="header_searchInput" />
+    <input
+      type="text"
+      class="header_searchInput"
+      placeholder="Search Amazon.in"
+    />
     <!-- ICON BUTTON -->
     <!-- <div style="display: flex; align-items: center;"> -->
     <span class="header_searchIcon">
@@ -39,9 +52,11 @@
       <span class="header_optionLineTwo">Prime</span>
     </div>
 
-    <div class="header_optionBasket">
+    <div class="header_optionBasket" on:click={() => navigate("/cart")}>
+      <!-- <a href="/cart" use:link> -->
       <Icon class="material-icons">add_shopping_cart</Icon>
       <span class="header_optionLineTwo header_basketCount"> 0 </span>
+      <!-- </a> -->
     </div>
     <!-- header navigation -->
   </div>

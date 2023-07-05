@@ -1,19 +1,18 @@
 <script lang="ts">
+  import { Router, Link, Route } from "svelte-routing";
   import Header from "./lib/components/Header.svelte";
-  import Home from "./lib/components/Home.svelte";
+  import Checkout from "./lib/screens/Checkout.svelte";
+  import Home from "./lib/screens/Home.svelte";
+  import PageNotExists from "./lib/screens/PageNotExists.svelte";
+
+  // import router from "./routes/Router";
+  export let url = "";
   // import svelteLogo from "./assets/svelte.svg";
   // import Counter from "./lib/Counter.svelte";
 </script>
 
-<main>
-  <div class="app">
-    <Header />
-    <Home />
-  </div>
-</main>
-
 <svelte:head>
-  <!-- Fonts -->
+  <!-- Fonts $ Icons -->
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -33,20 +32,18 @@
   <link rel="stylesheet" href="https://unpkg.com/svelte-material-ui/bare.css" />
 </svelte:head>
 
+<main>
+  <div class="app">
+    <Header />
+    <Router {url}>
+      <div>
+        <Route path="/"><Home /></Route>
+        <Route path="/cart"><Checkout /></Route>
+        <Route path="/*"><PageNotExists /></Route>
+      </div>
+    </Router>
+  </div>
+</main>
+
 <style>
-  /* .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  } */
 </style>

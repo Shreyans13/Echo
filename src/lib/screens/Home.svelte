@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Product from "./Product.svelte";
-  import type { PropType } from "./Product.svelte";
+  import Product from "../components/Product.svelte";
+  import type { PropType } from "../components/Product.svelte";
   let p1: PropType = {
     title: "Beez tempered glass compatible with Moto G62 5G",
     price: 149,
