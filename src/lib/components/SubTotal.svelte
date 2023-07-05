@@ -17,7 +17,8 @@
     flex-direction: column;
     justify-content: space-between;
     width: 300px;
-    height: 100px;
+    height: 120px; 
+    /* height: 100px;  */
     padding: 20px;
     background-color: #f3f3f3;
     border: 1px solid #dddddd;

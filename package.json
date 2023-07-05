@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "watch-tsc": "tsc --watch --noEmit",
+    "start": "run-p watch-tsc dev"
   },
   "devDependencies": {
     "@smui/button": "^7.0.0-beta.0",
@@ -18,6 +20,7 @@
     "svelte-check": "^2.10.3",
     "tslib": "^2.5.0",
     "typescript": "^4.9.3",
+    "yarn-run-all": "^3.1.1",
     "vite": "^4.1.0"
   },
   "dependencies": {

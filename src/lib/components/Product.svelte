@@ -10,6 +10,8 @@
 
 <script lang="ts">
   import { Icon } from "@smui/button";
+  import { state } from "../../store/store"
+  import type { Action } from "../../types/store";
 
   interface $$Props extends PropType {}
 
@@ -17,6 +19,20 @@
   export let image: string;
   export let price: number;
   export let rating: Rating;
+
+  const addToCart = ():void => {
+    let val : Action = {
+      type: "ADD_TO_BASKET",
+      // item : "added this "
+      title: title,
+      image: image,
+      price: price,
+      rating: rating,
+    }
+    state.evalAction(val)
+  } 
+
+
   //   export let props: ProductProps;
   //   export let props: ProductProps;
 </script>
@@ -41,7 +57,7 @@
     </p>
   </div>
   <img src={image} alt="Product Image" srcset="" />
-  <button>Add to Basket</button>
+  <button on:click={addToCart}>Add to Basket</button>
 </div>
 
 <style>

@@ -5,6 +5,9 @@
   import { navigate } from "svelte-routing";
 </script>
 
+<script lang="ts">
+  import { state } from "../../store/store"
+</script>
 <!-- <nav>
         <Link to="/">Home</Link>
         <Link to="pageNotExist">pageNotExist</Link>
@@ -55,7 +58,7 @@
     <div class="header_optionBasket" on:click={() => navigate("/cart")}>
       <!-- <a href="/cart" use:link> -->
       <Icon class="material-icons">add_shopping_cart</Icon>
-      <span class="header_optionLineTwo header_basketCount"> 0 </span>
+      <span class="header_optionLineTwo header_basketCount"> {$state?.basket.length} </span>
       <!-- </a> -->
     </div>
     <!-- header navigation -->

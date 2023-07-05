@@ -4,8 +4,9 @@
 
 <div class="checkout">
   <div class="checkout__left">
+    <!-- src="https://images-eu.ssl-images-amazon.com/images/G/31/NAB/Banner_Corporate-bulk.jpg" -->
     <img
-      src="https://images-eu.ssl-images-amazon.com/images/G/31/NAB/Banner_Corporate-bulk.jpg"
+      src="https://images-eu.ssl-images-amazon.com/images/G/31/prime/ACQ/PD23/Cat_FT_PC.jpg"
       alt="Amazon advertisement"
       class="checkout__ad"
     />
