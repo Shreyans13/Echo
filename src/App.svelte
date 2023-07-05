@@ -1,14 +1,14 @@
 <script lang="ts">
   import Header from "./lib/components/Header.svelte";
+  import Home from "./lib/components/Home.svelte";
   // import svelteLogo from "./assets/svelte.svg";
   // import Counter from "./lib/Counter.svelte";
 </script>
 
 <main>
   <div class="app">
-    <!-- Header -->
     <Header />
-    <p>Hello everyone</p>
+    <Home />
   </div>
 </main>
 
