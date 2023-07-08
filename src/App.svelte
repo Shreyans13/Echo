@@ -4,6 +4,7 @@
   import Checkout from "./lib/screens/Checkout.svelte";
   import Home from "./lib/screens/Home.svelte";
   import PageNotExists from "./lib/screens/PageNotExists.svelte";
+  import Login from "./lib/screens/Login.svelte";
 
   // import router from "./routes/Router";
   export let url = "";
@@ -34,11 +35,11 @@
 
 <main>
   <div class="app">
-    <Header />
     <Router {url}>
       <div>
-        <Route path="/"><Home /></Route>
-        <Route path="/cart"><Checkout /></Route>
+        <Route path="/"><Header /><Home /></Route>
+        <Route path="/cart"><Header /><Checkout /></Route>
+        <Route path="/login"><Login /></Route>
         <Route path="/*"><PageNotExists /></Route>
       </div>
     </Router>

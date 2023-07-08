@@ -6,8 +6,9 @@
 </script>
 
 <script lang="ts">
-  import { state } from "../../store/store"
+  import { state } from "../../store/store";
 </script>
+
 <!-- <nav>
         <Link to="/">Home</Link>
         <Link to="pageNotExist">pageNotExist</Link>
@@ -40,10 +41,12 @@
   </div>
   <div class="header_nav">
     <!-- navigation 1  -->
-    <div class="header_option">
-      <span class="header_optionLineOne">Hello User</span>
-      <span class="header_optionLineTwo">Sign in </span>
-    </div>
+    <a href="/login">
+      <div class="header_option">
+        <span class="header_optionLineOne">Hello User</span>
+        <span class="header_optionLineTwo">Sign in </span>
+      </div>
+    </a>
     <!-- navigation 2  -->
     <div class="header_option">
       <span class="header_optionLineOne">Return</span>
@@ -58,7 +61,9 @@
     <div class="header_optionBasket" on:click={() => navigate("/cart")}>
       <!-- <a href="/cart" use:link> -->
       <Icon class="material-icons">add_shopping_cart</Icon>
-      <span class="header_optionLineTwo header_basketCount"> {$state?.basket.length} </span>
+      <span class="header_optionLineTwo header_basketCount">
+        {$state?.basket.length}
+      </span>
       <!-- </a> -->
     </div>
     <!-- header navigation -->
