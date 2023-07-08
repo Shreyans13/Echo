@@ -16,7 +16,7 @@ export type ProductItem = {
 
 export type AllActionsTypes = {
   ADD_TO_BASKET: ProductItem;
-  REMOVE_FROM_BASKET: { id: number };
+  REMOVE_FROM_BASKET: { index: number };
   // A: { valueB: string, otherValue: string } // if you uncomment this line you'll get a warning
 };
 

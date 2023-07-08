@@ -9,19 +9,21 @@
 <script lang="ts">
   import { Icon } from "@smui/button";
 
-  interface $$Props extends ProductItem {}
+  interface $$Props extends ProductItem {
+    index: number;
+  }
 
   export let title: string;
   export let image: string;
   export let price: number;
   export let rating: Rating;
   export let id: number;
-  console.log("id ======> ", id);
-  const removeFromBasket = () => {
-    console.log("id ==> ", id);
+  export let index: number;
+  console.log("index ====> ", index);
+  const removeFromBasket = (): void => {
     state.evalAction({
       type: "REMOVE_FROM_BASKET",
-      id: id,
+      index: index,
     });
   };
 </script>

@@ -14,8 +14,8 @@
     />
     <div>
       <h2 class="checkout__title">Your shopping basket</h2>
-      {#each $state.basket as item, _}
-        <CheckoutProduct {...item} />
+      {#each $state.basket as item, index}
+        <CheckoutProduct {...item} {index} />
       {/each}
     </div>
   </div>

@@ -51,10 +51,13 @@ class State {
         break;
       case "REMOVE_FROM_BASKET":
         this._update((n: Data) => {
-          return {
+          console.log("action.index =>>>>", action.index);
+          const result = {
             ...n,
-            basket: n.basket.filter((i: ProductItem) => !(i.id == action.id)),
+            basket: n.basket.filter((_, index) => !(index == action.index)),
           };
+          console.log(result);
+          return result;
         });
     }
   }
