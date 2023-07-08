@@ -5,11 +5,19 @@
   import Home from "./lib/screens/Home.svelte";
   import PageNotExists from "./lib/screens/PageNotExists.svelte";
   import Login from "./lib/screens/Login.svelte";
+  import { auth } from "./services/firebase";
+  import { onMount } from "svelte";
+  import { state } from "./store/store";
 
   // import router from "./routes/Router";
   export let url = "";
   // import svelteLogo from "./assets/svelte.svg";
   // import Counter from "./lib/Counter.svelte";
+  onMount(async () => {
+    auth.onAuthStateChanged((userAuth) =>
+      state.evalAction({ type: "SET_USER", user: userAuth ? userAuth : null })
+    );
+  });
 </script>
 
 <svelte:head>

@@ -7,6 +7,26 @@
 
 <script lang="ts">
   import { state } from "../../store/store";
+  import { signOut } from "firebase/auth";
+  import { auth } from "../../services/firebase";
+
+  const handleAuth = () => {
+    if ($state.user) {
+      signOut(auth)
+        .then(() => {
+          console.log("sign out");
+          navigate("/login");
+          // Sign-out successful.
+        })
+        .catch((error) => {
+          alert(error);
+          // An error happened.
+        });
+    } else {
+      console.log("user not found");
+      navigate("/login");
+    }
+  };
 </script>
 
 <!-- <nav>
@@ -27,7 +47,7 @@
     <input
       type="text"
       class="header_searchInput"
-      placeholder="Search Amazon.in"
+      placeholder="Search Echo.in"
     />
     <!-- ICON BUTTON -->
     <!-- <div style="display: flex; align-items: center;"> -->
@@ -41,12 +61,21 @@
   </div>
   <div class="header_nav">
     <!-- navigation 1  -->
-    <a href="/login">
-      <div class="header_option">
-        <span class="header_optionLineOne">Hello User</span>
-        <span class="header_optionLineTwo">Sign in </span>
-      </div>
-    </a>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="header_option" on:click={handleAuth}>
+      {#if $state.user}
+        <span class="header_optionLineOne">Hello {$state.user.email}</span>
+      {:else}
+        <span class="header_optionLineOne">Hello Guest</span>
+      {/if}
+      <span class="header_optionLineTwo">
+        {#if $state.user}
+          Sign Out
+        {:else}
+          Sign In
+        {/if}
+      </span>
+    </div>
     <!-- navigation 2  -->
     <div class="header_option">
       <span class="header_optionLineOne">Return</span>
@@ -62,7 +91,7 @@
       <!-- <a href="/cart" use:link> -->
       <Icon class="material-icons">add_shopping_cart</Icon>
       <span class="header_optionLineTwo header_basketCount">
-        {$state?.basket.length}
+        {$state.basket.length}
       </span>
       <!-- </a> -->
     </div>

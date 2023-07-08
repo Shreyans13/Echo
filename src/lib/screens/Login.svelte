@@ -2,21 +2,61 @@
 </script>
 
 <script lang="ts">
-  let email: string;
-  let password: string;
+  import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+  } from "firebase/auth";
+  import { auth } from "../../services/firebase";
+  import { navigate } from "svelte-routing/src/history";
+  import { onMount } from "svelte";
+  let email: string = "hakocad360@nasskar.com";
+  let password: string = "hakocad360@nasskar.com";
+  let errorMessage: string = "";
+  let errorCode;
 
-  const signInUser = (event: Event): void => event.preventDefault();
-  const registerUser = (event: Event): void => event.preventDefault();
+  const signInUser = (event: Event): void => {
+    event.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        navigate("/", { replace: true, state: {} });
+      })
+      .catch((error) => {
+        errorCode = error.code;
+        errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        // ..
+      });
+  };
+  const registerUser = (event: Event): void => {
+    event.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        errorCode = error.code;
+        errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        // ..
+      });
+  };
 </script>
 
 <div class="login">
-  <a href="/">
-    <img
-      class="login__logo"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png"
-      alt="logo"
-    />
-  </a>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <img
+    class="login__logo"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png"
+    alt="logo"
+    on:click={() => navigate("/")}
+  />
   <div class="login__container">
     <h1>Sign In</h1>
     <form action="">
@@ -30,6 +70,7 @@
         >Sign In</button
       >
     </form>
+    <p>{errorMessage}</p>
     <p>Agree Fake terms and conditions</p>
     <button on:click={registerUser} class="login__registerButton"
       >Create your account</button

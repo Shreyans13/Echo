@@ -9,10 +9,13 @@
     <!-- src="https://images-eu.ssl-images-amazon.com/images/G/31/NAB/Banner_Corporate-bulk.jpg" -->
     <img
       src="https://images-eu.ssl-images-amazon.com/images/G/31/prime/ACQ/PD23/Cat_FT_PC.jpg"
-      alt="Amazon advertisement"
+      alt="Echo advertisement"
       class="checkout__ad"
     />
     <div>
+      {#if $state.user}
+        <h3 class="">Hello {$state.user.email}</h3>
+      {/if}
       <h2 class="checkout__title">Your shopping basket</h2>
       {#each $state.basket as item, index}
         <CheckoutProduct {...item} {index} />

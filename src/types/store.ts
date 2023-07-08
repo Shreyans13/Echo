@@ -1,3 +1,5 @@
+import type { User } from "firebase/auth";
+
 export type Rating = 0 | 1 | 2 | 3 | 4 | 5;
 // export interface PropType {
 //   title: string;
@@ -17,6 +19,7 @@ export type ProductItem = {
 export type AllActionsTypes = {
   ADD_TO_BASKET: ProductItem;
   REMOVE_FROM_BASKET: { index: number };
+  SET_USER: { user: User | null };
   // A: { valueB: string, otherValue: string } // if you uncomment this line you'll get a warning
 };
 
@@ -28,4 +31,5 @@ export type Action = {
 
 export type Data = {
   basket: ProductItem[];
+  user: User | null;
 };

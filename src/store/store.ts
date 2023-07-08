@@ -9,6 +9,7 @@ class State {
   // basket: string[];
   data: Data = {
     basket: [],
+    user: null,
   };
 
   private genUniqueProductID() {
@@ -33,20 +34,14 @@ class State {
     switch (action.type) {
       case "ADD_TO_BASKET":
         this._update((n: Data) => {
-          const result = {
-            basket: [
-              ...n.basket,
-              {
-                title: action.title,
-                image: action.image,
-                price: action.price,
-                rating: action.rating,
-                id: this.genUniqueProductID(),
-              },
-            ],
-          };
-          console.log(result);
-          return result;
+          n.basket.push({
+            title: action.title,
+            image: action.image,
+            price: action.price,
+            rating: action.rating,
+            id: action.id,
+          });
+          return n;
         });
         break;
       case "REMOVE_FROM_BASKET":
@@ -59,6 +54,14 @@ class State {
           console.log(result);
           return result;
         });
+        break;
+      case "SET_USER":
+        this._update((n: Data) => {
+          n.user = action.user;
+          return n;
+        });
+        break;
+      // this._set(action.user);
     }
   }
 
