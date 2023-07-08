@@ -1,5 +1,7 @@
 <script lang="ts">
+  import CheckoutProduct from "../components/CheckoutProduct.svelte";
   import SubTotal from "../components/SubTotal.svelte";
+  import { state } from "../../store/store";
 </script>
 
 <div class="checkout">
@@ -12,6 +14,9 @@
     />
     <div>
       <h2 class="checkout__title">Your shopping basket</h2>
+      {#each $state.basket as item, _}
+        <CheckoutProduct {...item} />
+      {/each}
     </div>
   </div>
   <div class="checkout__right">

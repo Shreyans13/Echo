@@ -1,37 +1,32 @@
 <script lang="ts" context="module">
-  export type Rating = 0 | 1 | 2 | 3 | 4 | 5;
-  export interface PropType {
-    title: string;
-    image: string;
-    price: number;
-    rating: Rating;
-  }
+  import type { Rating, ProductItem } from "../../types/store";
+
+  // interface PropType extends ProductItem
+  // export PropType
 </script>
 
 <script lang="ts">
   import { Icon } from "@smui/button";
-  import { state } from "../../store/store"
-  import type { Action } from "../../types/store";
+  import { state } from "../../store/store";
 
-  interface $$Props extends PropType {}
+  interface $$Props extends ProductItem {}
 
   export let title: string;
   export let image: string;
   export let price: number;
+  export let id: number;
   export let rating: Rating;
 
-  const addToCart = ():void => {
-    let val : Action = {
+  const addToCart = (): void => {
+    state.evalAction({
       type: "ADD_TO_BASKET",
-      // item : "added this "
       title: title,
       image: image,
       price: price,
       rating: rating,
-    }
-    state.evalAction(val)
-  } 
-
+      id: id,
+    });
+  };
 
   //   export let props: ProductProps;
   //   export let props: ProductProps;

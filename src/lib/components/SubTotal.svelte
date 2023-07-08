@@ -1,9 +1,17 @@
+<script lang="ts" context="module">
+  import type { ProductItem } from "../../types/store";
+</script>
+
 <script lang="ts">
+  import { state } from "../../store/store";
+
+  const getTotalAmount = state.getTotalAmount();
 </script>
 
 <div class="subtotal">
   <p>
-    Subtotal (0 items): <strong>0</strong>
+    Subtotal ({$state?.basket.length} items):
+    <strong>₹ {$getTotalAmount}</strong>
     <small class="subtotal__gift">
       <input type="checkbox" name="" id="" />This order contains a gift
     </small>
@@ -17,7 +25,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 300px;
-    height: 120px; 
+    height: 120px;
     /* height: 100px;  */
     padding: 20px;
     background-color: #f3f3f3;

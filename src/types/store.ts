@@ -11,15 +11,17 @@ export type ProductItem = {
   image: string;
   price: number;
   rating: Rating;
+  id: number;
 };
 
 export type AllActionsTypes = {
-  A: { valueA: string };
   ADD_TO_BASKET: ProductItem;
+  REMOVE_FROM_BASKET: { id: number };
   // A: { valueB: string, otherValue: string } // if you uncomment this line you'll get a warning
 };
 
 export type SingleAction = keyof AllActionsTypes;
+
 export type Action = {
   [T in SingleAction]: { type: T } & AllActionsTypes[T];
 }[SingleAction];
