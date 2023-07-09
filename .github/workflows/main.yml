@@ -32,4 +32,5 @@ jobs:
         id: deploy_to_pages
         with:
           package_manager: yarn
+          public_base_path: "https://shreyans13.github.io/Echo/"
         
