@@ -48,7 +48,7 @@
         <Route path="/"><Header /><Home /></Route>
         <Route path="/cart"><Header /><Checkout /></Route>
         <Route path="/login"><Login /></Route>
-        <Route path="/*"><PageNotExists /></Route>
+        <Route path="/*"><Header /><PageNotExists /></Route>
       </div>
     </Router>
   </div>
