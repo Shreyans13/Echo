@@ -34,15 +34,15 @@
         <Link to="pageNotExist">pageNotExist</Link>
       </nav> -->
 <div class="header">
-  <a href="/" use:link>
-    <img
-      class="header_logo"
-      src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-      alt="Amazon logo"
-      srcset=""
-      on:click={() => navigate("/")}
-    />
-  </a>
+  <!-- <a href="/" use:link> -->
+  <img
+    class="header_logo"
+    src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+    alt="Amazon logo"
+    srcset=""
+    on:click={() => navigate("/home")}
+  />
+  <!-- </a> -->
   <div class="header_search">
     <input
       type="text"

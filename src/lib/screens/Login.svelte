@@ -21,7 +21,7 @@
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        navigate("/", { replace: true, state: {} });
+        navigate("/home", { replace: true, state: {} });
       })
       .catch((error) => {
         errorCode = error.code;
@@ -55,7 +55,7 @@
     class="login__logo"
     src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png"
     alt="logo"
-    on:click={() => navigate("/")}
+    on:click={() => navigate("/home")}
   />
   <div class="login__container">
     <h1>Sign In</h1>
