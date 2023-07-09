@@ -40,7 +40,7 @@
     src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
     alt="Amazon logo"
     srcset=""
-    on:click={() => navigate("/home")}
+    on:click={() => navigate("/")}
   />
   <!-- </a> -->
   <div class="header_search">

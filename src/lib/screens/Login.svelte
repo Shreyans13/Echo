@@ -9,8 +9,8 @@
   import { auth } from "../../services/firebase";
   import { navigate } from "svelte-routing/src/history";
   import { onMount } from "svelte";
-  let email: string = "hakocad360@nasskar.com";
-  let password: string = "hakocad360@nasskar.com";
+  let email: string;
+  let password: string;
   let errorMessage: string = "";
   let errorCode;
 
@@ -21,7 +21,7 @@
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        navigate("/home", { replace: true, state: {} });
+        navigate("/", { replace: true, state: {} });
       })
       .catch((error) => {
         errorCode = error.code;
@@ -55,7 +55,7 @@
     class="login__logo"
     src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png"
     alt="logo"
-    on:click={() => navigate("/home")}
+    on:click={() => navigate("/")}
   />
   <div class="login__container">
     <h1>Sign In</h1>

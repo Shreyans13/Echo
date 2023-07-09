@@ -45,7 +45,7 @@
   <div class="app">
     <Router {url}>
       <div>
-        <Route path="/home"><Header /><Home /></Route>
+        <Route path="/"><Header /><Home /></Route>
         <Route path="/cart"><Header /><Checkout /></Route>
         <Route path="/login"><Login /></Route>
         <Route path="/*"><Header /><PageNotExists /></Route>

@@ -3,7 +3,7 @@ import PageNotExists from "../lib/screens/PageNotExists.svelte";
 
 export default [
   {
-    path: "/home",
+    path: "/",
     component: Home,
   },
   {
