@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Echo-production
-      url: ${{ steps.deploy_to_pages.outputs.github_pages_url }}
+      url: "https://shreyans13.github.io/Echo/"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
